@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row over" data-masonry='{"percentPosition": true }'>
+        {% for assessment in assessments %}
+        <div class="col-sm-12 col-lg-12 col-md-12 over">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ assessment[0].module }}</h5>
+                    <p class="card-text">Coursework Title: {{ assessment[0].title }}</p>
+                    <p class="card-text">Module Code: {{ assessment[0].code }}</p>
+                    <p class="card-text text-font">Description: {{ assessment[0].description }}</p>
+                    <div class="card-text time-lable">
+                        {% for k in assessment[2] %}
+                        {% if k == 1 %}
+                        {% if assessment[1] >= 7 %}
+                        <div class="time1 col-1 ">&nbsp;</div>
+                        {% elif assessment[1] >= 3 %}
+                        <div class="time2 col-1 ">&nbsp;</div>
+                        {% else %}
+                        <div class="time3 col-1 ">&nbsp;</div>
+                        {% endif %}
+                        {% else %}
+                        <div class="notime col-1 ">&nbsp;</div>
+                        {% endif %}
+                        {% endfor %}
+                        <div class="col-2 left">&nbsp;&nbsp;{{assessment[3]}} days</div>
+                        <div class="row">
+                            <div class="col-4 left">Release time: {{ assessment[0].release_day }}</div>
+                            <div class="col-2">&nbsp;</div>
+                            <div class="col-4 right">Deadline: {{ assessment[0].deadline }}</div>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        Status:
+                        {% if assessment[0].status == 0 %}
+                        Uncompleted
+                        {% else %}
+                        Completed
+                        {% endif %}
+                    </p>
+                    <div class="row justify-content-center">
+                        {% if assessment[0].status ==0 %}
+                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="but" class="btn btn-dark card-link col-lg-2 col-md-3 col-sm-3">
+                            Submit
+                        </a>
+                        {% else %}
+                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="butt" class="btn btn-dark card-link col-lg-2 col-md-3 col-sm-3">
+                            Cancel submission
+                        </a>
+                        {% endif %}
+                        <a href="{{ url_for('edit', id=assessment[0].id, page = PageTitle) }}" class="btn btn-info card-link col-lg-2 col-md-3 col-sm-3">
+                            Edit
+                        </a>
+                        <a href="{{ url_for('delete', id=assessment[0].id, page = PageTitle) }}" class="btn btn-danger card-link col-lg-2 col-md-3 col-sm-3">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

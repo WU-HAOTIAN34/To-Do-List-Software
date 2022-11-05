@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="../static/js/index.js"></script>
+        <link rel="shortcut icon" href="../static/library/font/logo.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="../static/library/css/xadmin.css">
+        <script type="text/javascript" src="../static/library/js/jQuery3-6-0.js"></script>
+        <script type="text/javascript" src="../static/library/js/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../static/library/js/xadmin.js"></script>
+        <script type="text/javascript" src="../static/library/js/form.js"></script>
+        <link rel="stylesheet" href="../static/library/css/font.css">
+        <script src="../static/library/js/masonry.pkgd.min.js"></script>
+        <script src="../static/library/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../static/library/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/index.css">
+        {% if PageTitle %}
+        <title>{{ PageTitle }}</title>
+        {% else %}
+        <title>Assessment to-do list</title>
+        {% endif %}
+    </head>
+    <body>
+        <div class="normalized-background">
+            <nav class="container form-check-inline normalized-background">
+                <div class="logo">
+                    <a>Assessment to-do list</a>
+                </div>
+                <div class="left_open">
+                    <i title="layout" class="layui-icon">&#xe671;</i>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="left-nav">
+            <div id="side-nav">
+                <ul id="nav">
+                    <li>
+                        <a class="set-a" href="javascript:;">
+                            <i class="layui-icon">&#xe62a;</i>
+                            <cite>Assessment List</cite>
+                        </a>
+                        <ul class="sub-menu set-ul">
+                            <li>
+                                <a class="set-a"  href="{{ url_for('show') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>All assessment</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="set-a" href="{{ url_for('complete') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>Completed assessment</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="set-a" href="{{ url_for('uncompleted') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>Uncompleted assessment</cite>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="set-a" href="javascript:;">
+                            <i class="layui-icon">&#xe705;</i>
+                            <cite>Operations</cite>
+                            <i class="iconfont nav_right">&#xe697;</i>
+                        </a>
+                        <ul class="sub-menu set-ul">
+                            <li>
+                                <a class="set-a" href="{{ url_for('new') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>Search</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="set-a" href="{{ url_for('new') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>Add assessment</cite>
+                                </a>
+                            </li >
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="page-content over overflow-auto">
+            <div class="layui-tab tab" lay-filter="xbs_tab over" lay-allowclose="false">
+                <ul class="layui-tab-title">
+                    <li class="home">
+                        <i class="layui-icon">&#xe68e;</i>
+                        My Assessments
+                    </li>
+                </ul>
+                <div class="layui-tab-content over">
+                    <div class="layui-tab-item layui-show  over">
+                            {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer normalized-background">
+            <div class="copyright">Assessment</div>
+        </div>
+    </body>
+</html>

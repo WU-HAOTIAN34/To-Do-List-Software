@@ -1,0 +1,81 @@
+.time1{
+    background-color: #1CA0A0;
+    float: left;
+    color: #1CA0A0;
+}
+.time2{
+    background-color: #FEBE10;
+    float: left;
+    color: #FEBE10;
+}
+.time3{
+    background-color: #F50506;
+    float: left;
+    color: #F50506;
+}
+.notime{
+    background-color: #E4E7E7;
+    float: left;
+    color: #E4E7E7;
+}
+ul#nav{
+    padding-left: 1rem;
+}
+.over{
+    overflow-x: hidden;
+}
+.left-nav #nav li .sub-menu li a{
+    padding: 12px 0px 12px 10px;
+    font-size: 10px;
+    text-decoration: none;
+}
+a{
+    color: black;
+    padding: 0;
+    text-decoration: none;
+}
+.iconfont{
+    color: black;
+    text-decoration: none;
+}
+.normalized-background{
+    background-color: #1CA0A0;
+}
+
+.container{
+    width: 100%;
+}
+.set-ul{
+    width: 200%;
+    padding-left: 0;
+    margin-right: 20%;
+    font-size: 10px;
+}
+.text-font{
+    color: black;
+    text-align: justify;
+}
+.left{
+    float: left;
+    text-align: left;
+}
+.right{
+    float: left;
+    text-align: right;
+}
+.time-lable{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+div.time1:nth-child(10), div.time2:nth-child(10), div.time3:nth-child(10), div.notime:nth-child(10){
+    border-radius: 0 40% 40% 0;
+}
+div.time1:nth-child(1), div.time2:nth-child(1), div.time3:nth-child(1), div.notime:nth-child(1){
+    border-radius: 40% 0 0 40%;
+}
+a#but, a#butt{
+    margin-left: 1rem;
+}
+
+
+
