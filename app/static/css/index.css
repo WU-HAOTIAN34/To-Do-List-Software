@@ -76,6 +76,16 @@ div.time1:nth-child(1), div.time2:nth-child(1), div.time3:nth-child(1), div.noti
 a#but, a#butt{
     margin-left: 1rem;
 }
+.sort{
+
+    vertical-align: bottom;
+    font-size: 20px;
+    height: 100%;
+}
 
 
+
+.n{
+    background-color: red;
+}
 

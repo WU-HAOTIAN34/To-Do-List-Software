@@ -16,13 +16,13 @@
     }(), a = function (t) {
         e.console && console.error && console.error("Layui hint: " + t)
     }, i = "undefined" != typeof opera && "[object Opera]" === opera.toString(), u = {
-        layer: "modules/layer",
+        layer: "../layer",
         laydate: "modules/laydate",
         laypage: "modules/laypage",
         laytpl: "modules/laytpl",
         layim: "modules/layim",
         layedit: "modules/layedit",
-        form: "modules/form",
+        form: "../form",
         upload: "modules/upload",
         tree: "modules/tree",
         table: "modules/table",

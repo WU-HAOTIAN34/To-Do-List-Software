@@ -1,7 +1,8 @@
 from app import db
 
 
-class assessments(db.Model):
+class Assessment(db.Model):
+    __tablename__ = 'assessments'
     id = db.Column(db.Integer, primary_key=True)
     module = db.Column(db.String(100))
     title = db.Column(db.String(100))
@@ -11,4 +12,3 @@ class assessments(db.Model):
     description = db.Column(db.String(500))
     status = db.Column(db.Boolean())
     submit_times = db.Column(db.Integer())
-

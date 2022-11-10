@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
+    <br>
+    <div>
+        {% if PageTitle == "All Assessments" %}
+        <form method="post" name="show" class="layui-form">
+            {{form.csrf_token()}}
+            {{form.method.label}} {{ form.method(class_="layui-input  form-control" ) }}
+            {{form.submit}}
+        </form>
+        {% elif PageTitle == "Completed Assessment" %}
+        <form method="post" name="complete">
+            {{form.csrf_token()}}
+            {{form.method.label}} {{ form.method(class_="form-control" ) }}
+            {{form.submit}}
+        </form>
+        {% elif PageTitle == "Uncompleted Assessment" %}
+        <form method="post" name="uncompleted">
+            {{form.csrf_token()}}
+            {{form.method.label}} {{ form.method(class_="form-control" ) }}
+            {{form.submit}}
+        </form>
+        {% endif %}
+    </div>
     <div class="row over" data-masonry='{"percentPosition": true }'>
         {% for assessment in assessments %}
         <div class="col-sm-12 col-lg-12 col-md-12 over">
@@ -33,7 +55,7 @@
                     <p class="card-text">
                         Status:
                         {% if assessment[0].status == 0 %}
-                        Uncompleted
+                        <strong class="btn-danger">Uncompleted</strong>
                         {% else %}
                         Completed
                         {% endif %}
