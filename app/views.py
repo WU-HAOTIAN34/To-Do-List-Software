@@ -82,7 +82,7 @@ def new():
     if form.validate_on_submit():
         assessment = Assessment(module=form.module.data, title=form.title.data, code=form.code.data,
                                 release_day=form.release_day.data, deadline=form.deadline.data,
-                                description=form.description.data, status=0, submit_times=0)
+                                description=form.description.data, status=0)
         try:
             db.session.add(assessment)
             db.session.commit()

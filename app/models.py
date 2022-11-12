@@ -11,7 +11,6 @@ class Assessment(db.Model):
     deadline = db.Column(db.Date())
     description = db.Column(db.String(3000))
     status = db.Column(db.Boolean())
-    submit_times = db.Column(db.Integer())
 
 
 class Plan(db.Model):
