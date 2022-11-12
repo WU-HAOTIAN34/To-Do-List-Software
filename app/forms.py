@@ -9,12 +9,12 @@ class CreateAssessment(FlaskForm):
     code = StringField('code', validators=[DataRequired(), Length(max=10)])
     release_day = DateField('release_day', validators=[DataRequired()])
     deadline = DateField('deadline', validators=[DataRequired()])
-    description = TextAreaField('description', validators=[DataRequired(), Length(max=500)])
+    description = TextAreaField('description', validators=[DataRequired(), Length(max=3000)])
 
 
 class SortForm(FlaskForm):
     method = SelectField('Sorted by', choices=[(0, "None"), (1, 'Module'), (2, 'Title'), (3, 'Release time'),
-                                            (4, 'Deadline')], validators=[DataRequired()])
+                                               (4, 'Deadline')], validators=[DataRequired()])
     submit = SubmitField('Sort')
 
 

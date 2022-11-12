@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="row my-5">
     <div class="col-2"></div>
     <div class="col-8">
@@ -51,7 +52,7 @@
             <br>
 
             <label>Description</label>
-            {{ form.description(class_="form-control", rows="4") }}
+            {{ form.description(class_="form-control", rows="4", id="demo") }}
             {% for error in form.description.errors %}
             <div class="alert alert-danger" role="alert">
                 {{ error }}
@@ -65,4 +66,5 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src="../static/js/index.js"></script>
 {% endblock %}

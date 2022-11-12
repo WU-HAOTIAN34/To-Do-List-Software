@@ -82,9 +82,26 @@ a#but, a#butt{
     font-size: 20px;
     height: 100%;
 }
-
-
-
+div#block, div#block1, div#block2{
+    margin-left: 0;
+}
+div.query1, div.query2, div.query3, div.query4{
+    float: left;
+    margin-right: 3%;
+}
+.x-so input.layui-input {
+    width: 50%;
+}
+div#cont, div.cont{
+    padding: 0 30px;
+}
+.blue-btn{
+    background-color: #248cf5;
+    margin-top: 20px;
+}
+.mid-hr{
+    width: 50%;
+}
 .n{
     background-color: red;
 }

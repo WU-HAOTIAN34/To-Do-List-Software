@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<div class="layui-container">
+    {% for k in assessments %}
+    <div class="layui-row">
+        <a href="{{ url_for('choose', day_p=day, id=k.id) }}">
+            Module: {{k.module}}&nbsp;&nbsp;&nbsp; Title: {{k.title}}
+        </a>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+<script type="text/javascript" src="../static/lib/js/xadmin.js"></script>
+<script type="text/javascript" src="../static/js/index.js"></script>
+{% endblock %}

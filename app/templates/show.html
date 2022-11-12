@@ -1,27 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
     <br>
-    <div>
-        {% if PageTitle == "All Assessments" %}
-        <form method="post" name="show" class="layui-form">
-            {{form.csrf_token()}}
-            {{form.method.label}} {{ form.method(class_="layui-input  form-control" ) }}
-            {{form.submit}}
-        </form>
-        {% elif PageTitle == "Completed Assessment" %}
-        <form method="post" name="complete">
-            {{form.csrf_token()}}
-            {{form.method.label}} {{ form.method(class_="form-control" ) }}
-            {{form.submit}}
-        </form>
-        {% elif PageTitle == "Uncompleted Assessment" %}
-        <form method="post" name="uncompleted">
-            {{form.csrf_token()}}
-            {{form.method.label}} {{ form.method(class_="form-control" ) }}
-            {{form.submit}}
-        </form>
-        {% endif %}
+    <div class="layui-container">
+        <div class="layui-row">
+            {% if PageTitle == "All Assessments" %}
+            <form method="post" name="show" class="layui-form">
+                <div class="layui-form-item">
+                    {{form.csrf_token()}}
+                    <label class="layui-form-label col-lg-2 col-md-3 layui-col-sm12">Sorted:</label>
+                    <div id="block" class="layui-input-block layui-input-inline">
+                        {{ form.method(class_="form-control" ) }}
+                    </div>
+                    {{form.submit(class_="layui-btn layui-btn-radius layui-btn-normal layui-input-inline")}}
+                </div>
+            </form>
+            {% elif PageTitle == "Completed Assessment" %}
+            <form method="post" name="complete" class="layui-form">
+                <div class="layui-form-item">
+                    {{form.csrf_token()}}
+                    <label class="layui-form-label col-lg-2 col-md-3 layui-col-sm12">Sorted:</label>
+                    <div id="block1" class="layui-input-block layui-input-inline">
+                        {{ form.method(class_="form-control" ) }}
+                    </div>
+                    {{form.submit(class_="layui-btn layui-btn-radius layui-btn-normal layui-input-inline")}}
+                </div>
+            </form>
+            {% elif PageTitle == "Uncompleted Assessment" %}
+            <form method="post" name="uncompleted" class="layui-form">
+                <div class="layui-form-item">
+                    {{form.csrf_token()}}
+                    <label class="layui-form-label col-lg-2 col-md-3 layui-col-sm12">Sorted:</label>
+                    <div id="block2" class="layui-input-block layui-input-inline">
+                        {{ form.method(class_="form-control" ) }}
+                    </div>
+                    {{form.submit(class_="layui-btn layui-btn-radius layui-btn-normal layui-input-inline")}}
+                </div>
+            </form>
+            {% endif %}
+        </div>
     </div>
+
+
+
     <div class="row over" data-masonry='{"percentPosition": true }'>
         {% for assessment in assessments %}
         <div class="col-sm-12 col-lg-12 col-md-12 over">
@@ -62,18 +82,18 @@
                     </p>
                     <div class="row justify-content-center">
                         {% if assessment[0].status ==0 %}
-                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="but" class="btn btn-dark card-link col-lg-2 col-md-3 col-sm-3">
+                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="but" class="layui-btn layui-btn-radius layui-bg-cyan card-link col-lg-2 col-md-3 col-sm-3">
                             Submit
                         </a>
                         {% else %}
-                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="butt" class="btn btn-dark card-link col-lg-2 col-md-3 col-sm-3">
+                        <a href="{{url_for('mark', id=assessment[0].id, page = PageTitle)}}" id="butt" class="layui-btn layui-btn-radius layui-bg-cyan card-link col-lg-2 col-md-3 col-sm-3">
                             Cancel submission
                         </a>
                         {% endif %}
-                        <a href="{{ url_for('edit', id=assessment[0].id, page = PageTitle) }}" class="btn btn-info card-link col-lg-2 col-md-3 col-sm-3">
+                        <a href="{{ url_for('edit', id=assessment[0].id, page = PageTitle) }}" class="layui-btn layui-btn-radius layui-btn-normal card-link col-lg-2 col-md-3 col-sm-3">
                             Edit
                         </a>
-                        <a href="{{ url_for('delete', id=assessment[0].id, page = PageTitle) }}" class="btn btn-danger card-link col-lg-2 col-md-3 col-sm-3">
+                        <a href="{{ url_for('delete', id=assessment[0].id, page = PageTitle) }}" class="layui-btn layui-btn-radius layui-btn-danger card-link col-lg-2 col-md-3 col-sm-3">
                             Delete
                         </a>
                     </div>

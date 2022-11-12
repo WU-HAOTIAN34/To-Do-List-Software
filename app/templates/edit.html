@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<script type="text/javascript" src="../static/js/index.js"></script>
 <div class="row my-5">
     <div class="col-2"></div>
     <div class="col-8">
@@ -52,10 +51,8 @@
             <br>
 
             <label>Description</label>
-            {{ form.description(class_="form-control", rows="4", id="description-text") }}
-            <script>
-                document.getElementById('description-text').value="{{assessment.description}}"
-            </script>
+            {{ form.description(class_="form-control", rows="4", id="demo" ) }}
+            <input type="text" id="description-text" placeholder="{{assessment.description}}">
             {% for error in form.description.errors %}
             <div class="alert alert-danger" role="alert">
                 {{ error }}
@@ -69,4 +66,5 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src="../static/js/index.js"></script>
 {% endblock %}

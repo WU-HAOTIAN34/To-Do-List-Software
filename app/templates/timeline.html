@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<div class="layui-container" id="turn">
+    <ul class="layui-timeline">
+        {% for i in plan %}
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">Month:{{month}} Date: {{i[0]}}&nbsp;&nbsp;&nbsp;
+                    {% if i[0] >= now %}
+                    <a class="layui-btn layui-btn-sm turn" href="{{ url_for('turn', day=i[0]) }}">
+                        <i class="layui-icon">&#xe654;</i>
+                    </a>
+                    {% endif %}
+                </h3>
+                <br><br>
+                {% for k in i[1] %}
+                <hr class="layui-border-red mid-hr">
+                <p>Module: {{k.module}}&nbsp;&nbsp;&nbsp;
+                    <a href="{{ url_for('delete_plan', id=k.plan_id) }}" class="layui-btn layui-btn-sm layui-bg-red">
+                        <i class="layui-icon">&#xe640;</i>
+                    </a>
+                </p>
+                <ul>
+                    <li>Title: {{k.title}}</li>
+                    <li>Release time: {{k.release_day}}</li>
+                    <li>Deadline: {{k.deadline}}</li>
+                </ul>
+                <br><br>
+                {% endfor %}
+            </div>
+        </li>
+        <hr class="layui-border-red layui-bg-red">
+        {% endfor %}
+
+
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">Before this month</h3>
+            </div>
+            {% for j in before %}
+            <hr class="layui-border-red mid-hr">
+            <p>Planning day: {{j.day}}&nbsp;&nbsp;&nbsp;
+                <a href="{{ url_for('delete_plan', id=j.plan_id) }}" class="layui-btn layui-btn-sm layui-bg-red">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </p>
+            <ul>
+                <li>Module: {{j.module}}</li>
+                <li>Title: {{j.title}}</li>
+                <li>Release time: {{j.release_day}}</li>
+                <li>Deadline: {{j.deadline}}</li>
+            </ul>
+            <br><br>
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+{% endblock %}

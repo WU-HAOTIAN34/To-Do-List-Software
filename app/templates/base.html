@@ -2,18 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <script type="text/javascript" src="../static/js/index.js"></script>
-        <link rel="shortcut icon" href="../static/library/font/logo.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="../static/library/css/xadmin.css">
-        <script type="text/javascript" src="../static/library/js/jQuery3-6-0.js"></script>
-        <script type="text/javascript" src="../static/library/js/layui.js" charset="utf-8"></script>
-        <script type="text/javascript" src="../static/library/js/xadmin.js"></script>
-        <script type="text/javascript" src="../static/library/js/form.js"></script>
-        <link rel="stylesheet" href="../static/library/css/font.css">
-        <script src="../static/library/js/masonry.pkgd.min.js"></script>
-        <script src="../static/library/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../static/library/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="../static/lib/font/logo.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="../static/lib/css/xadmin.css">
+        <script type="text/javascript" src="../static/lib/js/jQuery3-6-0.js"></script>
+        <script type="text/javascript" src="../static/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../static/lib/js/xadmin.js"></script>
+        <link rel="stylesheet" href="../static/lib/css/font.css">
+        <script src="../static/lib/bootstrap/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../static/lib/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="../static/css/index.css">
+
         {% if PageTitle %}
         <title>{{ PageTitle }}</title>
         {% else %}
@@ -40,6 +38,7 @@
                         <a class="set-a" href="javascript:;">
                             <i class="layui-icon">&#xe62a;</i>
                             <cite>Assessment List</cite>
+                            <i class="iconfont nav_right">&#xe603;</i>
                         </a>
                         <ul class="sub-menu set-ul">
                             <li>
@@ -67,11 +66,11 @@
                         <a class="set-a" href="javascript:;">
                             <i class="layui-icon">&#xe705;</i>
                             <cite>Operations</cite>
-                            <i class="iconfont nav_right">&#xe697;</i>
+                            <i class="iconfont nav_right">&#xe603;</i>
                         </a>
                         <ul class="sub-menu set-ul">
                             <li>
-                                <a class="set-a" href="{{ url_for('new') }}">
+                                <a class="set-a" href="{{ url_for('search') }}">
                                     <i class="layui-icon">&#xe602;</i>
                                     <cite>Search</cite>
                                 </a>
@@ -84,6 +83,25 @@
                             </li >
                         </ul>
                     </li>
+
+
+                    <li>
+                        <a class="set-a" href="javascript:;">
+                            <i class="layui-icon">&#xe637;</i>
+                            <cite>Schedule</cite>
+                            <i class="iconfont nav_right">&#xe603;</i>
+                        </a>
+                        <ul class="sub-menu set-ul">
+                            <li>
+                                <a class="set-a" href="{{ url_for('timeline') }}">
+                                    <i class="layui-icon">&#xe602;</i>
+                                    <cite>Calendar</cite>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </div>
         </div>
